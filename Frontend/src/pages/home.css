@@ -1,0 +1,255 @@
+.bgimg {
+  background-image: url(../assets/pexels-tomfisk-3820880.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+}
+
+/* React Select Custom Styling */
+.react-select-container .react-select__control {
+  background-color: white;
+  border-color: #d1d5db;
+  border-radius: 0.5rem;
+  min-height: 46px;
+}
+
+.dark .react-select-container .react-select__control {
+  background-color: #1f2937;
+  border-color: #4b5563;
+  color: white;
+}
+
+.react-select-container .react-select__menu {
+  background-color: white;
+  border-radius: 0.5rem;
+  z-index: 100;
+}
+
+.dark .react-select-container .react-select__menu {
+  background-color: #1f2937;
+  color: white;
+}
+
+.react-select-container .react-select__option {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.react-select-container .react-select__option--is-focused {
+  background-color: #f3f4f6;
+}
+
+.dark .react-select-container .react-select__option--is-focused {
+  background-color: #374151;
+}
+
+.react-select-container .react-select__option--is-selected {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.dark .react-select-container .react-select__option--is-selected {
+  background-color: #2563eb;
+}
+
+.react-select-container .react-select__single-value {
+  color: #111827;
+}
+
+.dark .react-select-container .react-select__single-value {
+  color: #f9fafb;
+}
+
+.react-select-container .react-select__placeholder {
+  color: #9ca3af;
+}
+
+.dark .react-select-container .react-select__placeholder {
+  color: #6b7280;
+}
+
+/* Animation classes for modals */
+.animate-slide-in-left {
+  animation: slideInLeft 0.3s ease-out forwards;
+}
+
+.animate-slide-out-right {
+  animation: slideOutRight 0.3s ease-in forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+
+/* Responsive Modal Styles */
+@media (max-width: 640px) {
+  .modal-content {
+    width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .modal-content {
+    width: 85%;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+}
+
+
+/* Add these styles to your existing home.css file */
+
+/* Enhanced custom scrollbar styles */
+:root {
+  --scrollbar-track-light: rgba(243, 244, 246, 0.8);
+  --scrollbar-thumb-light: rgba(37, 99, 235, 0.6);
+  --scrollbar-thumb-hover-light: rgba(29, 78, 216, 0.8);
+  --scrollbar-track-dark: rgba(31, 41, 55, 0.8);
+  --scrollbar-thumb-dark: rgba(79, 70, 229, 0.6);
+  --scrollbar-thumb-hover-dark: rgba(67, 56, 202, 0.8);
+}
+
+/* Global scrollbar styling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-light) var(--scrollbar-track-light);
+}
+
+html.dark {
+  scrollbar-color: var(--scrollbar-thumb-dark) var(--scrollbar-track-dark);
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-light);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-light);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-light);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-dark);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-dark);
+  background-clip: padding-box;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-dark);
+  background-clip: padding-box;
+}
+
+/* Custom scrollbar class for specific elements */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-light) var(--scrollbar-track-light);
+}
+
+.dark .custom-scrollbar {
+  scrollbar-color: var(--scrollbar-thumb-dark) var(--scrollbar-track-dark);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-light);
+  border-radius: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-light);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-light);
+  background-clip: padding-box;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-dark);
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-dark);
+  background-clip: padding-box;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-dark);
+  background-clip: padding-box;
+}
+
+/* Apply to specific modal content areas */
+.modal-content {
+  @apply custom-scrollbar;
+}
+
+/* Apply to html and body to ensure full page scrolling is affected */
+html, body {
+  @apply custom-scrollbar;
+}
+

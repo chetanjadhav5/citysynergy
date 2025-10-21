@@ -1,0 +1,14 @@
+.env
+scripts
+node_modules
+docs
+addborrowingfields.js
+checkinventorytable.js
+comprtesting.mjs
+crossDeptTesting.mjs
+testAPI.mjs
+testAPI.js
+inventoryTestSummary.md
+citysynergy.rar
+v2 backend.zip
+citysynergy.zip
