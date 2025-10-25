@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: citysynergy
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/chetanjadhav5/citysynergy  # Your repo URL
+    targetRevision: main
+    path: k8s  # Path to your k8s manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: citysynergy
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+

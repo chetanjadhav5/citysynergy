@@ -1,0 +1,56 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: citysynergy-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: iamcj
+      MYSQL_DATABASE: citysynergydb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - citysynergy-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: citysynergy-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=mysql        # use the MySQL container name
+      - DB_USER=root
+      - DB_PORT=3306
+      - DB_PASSWORD=iamcj
+      - DB_NAME=citysynergydb
+    depends_on:
+      - mysql
+
+    networks:
+      - citysynergy-network
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: citysynergy-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - citysynergy-network
+
+volumes:
+  mysql-data:
+
+networks:
+  citysynergy-network:
+    driver: bridge
+

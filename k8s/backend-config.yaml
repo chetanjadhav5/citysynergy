@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: citysynergy
+data:
+  PORT: "3000"
+  DB_HOST: "localhost"
+  DB_PORT: "3306"
+  DB_NAME: "citysynergydb"
+  JWT_ACCESS_EXPIRY: "45m"
+  JWT_REFRESH_EXPIRY: "7d"
+  EMAIL_HOST: "smtp.gmail.com"
+  EMAIL_PORT: "587"
+  EMAIL_SECURE: "false"
+  SMTP_HOST: "smtp.gmail.com"
+  SMTP_PORT: "587"
+  SMTP_SECURE: "false"
+  NODE_ENV: "production"
+  devadminemail: "admin@citysynergy.com"
+  cloud_name: "dxgw7218b"
+  api_key: "667977728967488"
+

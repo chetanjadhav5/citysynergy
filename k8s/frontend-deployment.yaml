@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: citysynergy-frontend
+  namespace: citysynergy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: citysynergy-frontend
+  template:
+    metadata:
+      labels:
+        app: citysynergy-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: yourjarviss/citysynergy-frontend:latest  # Replace with your Docker image
+          ports:
+            - containerPort: 3000
+          env:
+            - name: REACT_APP_API_URL
+              value: "http://citysynergy-backend:5000"  # Internal service URL
+
