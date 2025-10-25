@@ -17,8 +17,7 @@ spec:
         - name: frontend
           image: yourjarviss/citysynergy-frontend:latest  # Replace with your Docker image
           ports:
-            - containerPort: 3000
-          env:
-            - name: REACT_APP_API_URL
-              value: "http://citysynergy-backend:5000"  # Internal service URL
-
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: frontend-config
