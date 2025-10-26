@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cd "$(dirname "$0")/.." || exit 1
 # Variables
 EC2_ID="i-00af193d8398c8c89"          # Replace with your backend EC2 ID
 FRONTEND_CONFIG_FILE="k8s/frontend-config.yaml"
