@@ -21,11 +21,13 @@ echo "Backend IP: $BACKEND_IP"
 
 # Step 2: Update frontend-config.yaml
 # Replace the VITE_API_BASE_URL line
-sed -i.bak "s|^\s*VITE_API_BASE_URL:.*|  VITE_API_BASE_URL: \"http://$BACKEND_IP:$BACKEND_PORT\"|" $FRONTEND_CONFIG_FILE
+sed -i.bak -E "s|^[[:space:]]*VITE_API_BASE_URL:.*|VITE_API_BASE_URL: \"http://$BACKEND_IP:$BACKEND_PORT\"|" "$FRONTEND_CONFIG_FILE"
+
 
 echo "Updated $FRONTEND_CONFIG_FILE with new backend IP: $BACKEND_IP"
 
 # Replace only the CORS_ORIGIN line, leave other secrets unaffected
-sed -i.bak "s|^\s*CORS_ORIGIN:.*|  CORS_ORIGIN: \"http://$BACKEND_IP:$BACKEND_PORT\"|" "$BACKEND_SECRET_FILE"
+sed -i.bak "s|^[[:space:]]*CORS_ORIGIN:.*|  CORS_ORIGIN: \"http://$BACKEND_IP:$BACKEND_PORT\"|" "$BACKEND_SECRET_FILE"
+
 
 echo "Updated $BACKEND_SECRET_FILE with new backend IP: $BACKEND_IP"
