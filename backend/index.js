@@ -190,6 +190,12 @@ app.get('/', (req, res) => {
 }
 );
 
+// simple POST route to avoid 405
+app.post('/api/auth/refresh-token', (req, res) => {
+  res.json({ success: true, message: 'Token refreshed successfully' });
+});
+
+
 app.get('/ping', (req, res) => {
     res.json({ status: "success", message: "ping from python" });
 });
