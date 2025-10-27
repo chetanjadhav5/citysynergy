@@ -4,6 +4,6 @@ metadata:
   name: frontend-config
   namespace: citysynergy
 data:
-  VITE_API_BASE_URL: "http://localhost:3000"
+VITE_API_BASE_URL: "http://52.66.216.126:3000"
   VITE_DASHBOARD_REDIRECT: "/dashboard"
 

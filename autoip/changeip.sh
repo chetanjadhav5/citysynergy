@@ -23,10 +23,8 @@ BACKEND_URL="http://$BACKEND_HOSTNAME:$BACKEND_PORT"
 echo -e "\e[1;32m✅ Backend URL: $BACKEND_URL\e[0m"
 
 # === Update frontend config ===
-sed -i.bak -E "s|^[[:space:]]*VITE_API_BASE_URL:.*|VITE_API_BASE_URL: \"$BACKEND_URL\"|" "$FRONTEND_CONFIG_FILE"
-
-# === Update backend secret (CORS origin) ===
-sed -i.bak -E "s|^[[:space:]]*CORS_ORIGIN:.*|CORS_ORIGIN: \"$BACKEND_URL\"|" "$BACKEND_SECRET_FILE"
+sed -i.bak -E "s|^[[:space:]]*CORS_ORIGIN:.*|  CORS_ORIGIN: \"$BACKEND_URL\"|" "$BACKEND_SECRET_FILE"
+sed -i.bak -E "s|^[[:space:]]*VITE_API_BASE_URL:.*|  VITE_API_BASE_URL: \"$BACKEND_URL\"|" "$FRONTEND_CONFIG_FILE"
 
 echo -e "\e[1;32m✅ Updated frontend & backend YAMLs with LoadBalancer URL\e[0m"
 
