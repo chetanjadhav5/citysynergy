@@ -23,19 +23,22 @@ export const TenderDashboard = () => {
 
 
   const loadAllTenders = async () => {
-    try {
-      setIsLoading(true);
-      setError("");
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/tender/tenders`
-      );
-      setTenders(response.data);
-    } catch (err) {
-      setError("Failed to load tenders", err);
-    }finally{
-      setIsLoading(false);
-    }
-  };
+  try {
+    setIsLoading(true);
+    setError("");
+    const apiBase = import.meta.env.VITE_API_BASE_URL || "";
+    const response = await axios.get(
+      `${apiBase}/tender/tenders`
+    );
+    setTenders(response.data);
+  } catch (err) {
+    setError("Failed to load tenders");
+    console.error("Failed to load tenders:", err);
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   const handleCheckClashes = async () => {
     if (!pincode) {

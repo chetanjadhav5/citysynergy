@@ -33,9 +33,13 @@ const ClashDetails = () => {
 
   // Initialize socket connection
   useEffect(() => {
-    const socketInstance = io(import.meta.env.VITE_API_BASE_URL || "http://localhost:3000", {
-      withCredentials: true,
-    })
+  // If VITE_API_BASE_URL is blank, default to same-origin "/socket.io"
+  const apiBase = import.meta.env.VITE_API_BASE_URL || "";
+  const socketURL = apiBase ? apiBase : ""; // "" gives same origin
+
+  const socketInstance = io(socketURL, {
+    withCredentials: true,
+  });
 
     socketInstance.on("connect", () => {
       console.log("Socket connected:", socketInstance.id)

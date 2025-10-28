@@ -1,10 +1,12 @@
 import axios from "axios"
 import { useNavigate } from 'react-router-dom';
 
+const apiBase = import.meta.env.VITE_API_BASE_URL || "";
 const apiClient = axios.create({
-  baseURL: `${import.meta.env.VITE_API_BASE_URL}/api/`,
+  baseURL: `${apiBase}/api/`,
   withCredentials: true,
-})
+});
+
 
 let isRefreshing = false
 let failedQueue = []
@@ -149,21 +151,22 @@ const showSessionExpiredModal = () => {
 
 const refreshToken = async () => {
   try {
+    const apiBase = import.meta.env.VITE_API_BASE_URL || "";
     const response = await axios.post(
-      `${import.meta.env.VITE_API_BASE_URL}/api/auth/refresh-token`,
-      {}, 
+      `${apiBase}/api/auth/refresh-token`,
+      {},
       { withCredentials: true } // Ensures the HTTP-only cookie is sent
     );
 
     if (response?.data?.success && response.data.data.tokens.accessToken) {
       const newToken = response.data.data.tokens.accessToken;
-      
+
       // Store the new token in localStorage
       localStorage.setItem("token", newToken);
-      
+
       // Update the Authorization header
       apiClient.defaults.headers.common["Authorization"] = `Bearer ${newToken}`;
-      
+
       return newToken;
     }
 
@@ -173,6 +176,7 @@ const refreshToken = async () => {
     throw error;
   }
 };
+
 
 const handleAuthError = async () => {
   try {

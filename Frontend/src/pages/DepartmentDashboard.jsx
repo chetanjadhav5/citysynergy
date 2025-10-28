@@ -7,22 +7,28 @@ export default function DepartmentDashboard() {
   const { setIsLoading } = useLoading();
 
   useEffect(() => {
-    const fetchDepartmentData = async () => {
-      try {
-        setIsLoading(true);
-        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/department/data`, {
+  const fetchDepartmentData = async () => {
+    try {
+      setIsLoading(true);
+      // Use fallback for VITE_API_BASE_URL
+      const apiBase = import.meta.env.VITE_API_BASE_URL || "";
+      const response = await axios.get(
+        `${apiBase}/department/data`,
+        {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-        });
-        setDepartmentData(response.data);
-      } catch (error) {
-        console.error('Error fetching department data:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+        }
+      );
+      setDepartmentData(response.data);
+    } catch (error) {
+      console.error('Error fetching department data:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-    fetchDepartmentData();
-  }, []);
+  fetchDepartmentData();
+}, []);
+
 
   return (
     <div className="p-6">
