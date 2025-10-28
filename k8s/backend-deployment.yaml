@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: yourjarviss/citysynergy-backend:latest
+          image: yourjarviss/citysynergy-backend:v2.3
           imagePullPolicy: Always
           ports:
             - containerPort: 3000

@@ -5,7 +5,7 @@ metadata:
   namespace: citysynergy
 data:
   PORT: "3000"
-  DB_HOST: "localhost"
+  DB_HOST: "mysql"
   DB_PORT: "3306"
   DB_NAME: "citysynergydb"
   JWT_ACCESS_EXPIRY: "45m"

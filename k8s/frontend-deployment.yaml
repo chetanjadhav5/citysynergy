@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: yourjarviss/citysynergy-frontend:latest  # Replace with your Docker image
+          image: yourjarviss/citysynergy-frontend:v2.3  # Replace with your Docker image
           imagePullPolicy: Always
           ports:
             - containerPort: 80
